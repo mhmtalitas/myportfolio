@@ -2,18 +2,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import Image from 'next/image';
 import Lottie from 'lottie-react';
 import { useEffect, useState } from 'react';
-
-const images = {
-  hero: '/images/hero.svg',
-  about: '/images/about.svg',
-  project1: '/images/project1.svg',
-  project2: '/images/project2.svg',
-  project3: '/images/project3.svg',
-  contact: '/images/contact.svg'
-};
 
 const fadeInUp = {
   initial: { y: 60, opacity: 0 },
