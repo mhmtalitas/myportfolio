@@ -1,101 +1,358 @@
-import Image from "next/image";
+'use client';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Navbar from '@/components/Navbar';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import Image from 'next/image';
+import Lottie from 'lottie-react';
+import { useEffect, useState } from 'react';
+
+const images = {
+  hero: '/images/hero.svg',
+  about: '/images/about.svg',
+  project1: '/images/project1.svg',
+  project2: '/images/project2.svg',
+  project3: '/images/project3.svg',
+  contact: '/images/contact.svg'
+};
+
+const fadeInUp = {
+  initial: { y: 60, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const scaleIn = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  
+  const [animations, setAnimations] = useState({
+    hero: null,
+    about: null,
+    contact: null,
+    projects: {
+      ecommerce: null,
+      dashboard: null,
+      mobile: null
+    }
+  });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    // Modern developer animation
+    fetch('https://assets5.lottiefiles.com/packages/lf20_vybwn7df.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ ...prev, hero: data })));
+
+    // Tech skills animation
+    fetch('https://assets9.lottiefiles.com/packages/lf20_kkflmtur.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ ...prev, about: data })));
+
+    // Contact animation
+    fetch('https://assets10.lottiefiles.com/packages/lf20_u25cckyh.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ ...prev, contact: data })));
+
+    // Proje animasyonları
+    fetch('https://assets8.lottiefiles.com/packages/lf20_3vbOcw.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ 
+        ...prev, 
+        projects: { ...prev.projects, ecommerce: data }
+      })));
+
+    fetch('https://assets5.lottiefiles.com/packages/lf20_GofK09iPAE.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ 
+        ...prev, 
+        projects: { ...prev.projects, dashboard: data }
+      })));
+
+    fetch('https://assets2.lottiefiles.com/packages/lf20_xlmz9xwm.json')
+      .then(response => response.json())
+      .then(data => setAnimations(prev => ({ 
+        ...prev, 
+        projects: { ...prev.projects, mobile: data }
+      })));
+  }, []);
+
+  const projects = [
+    {
+      title: 'E-Commerce App',
+      desc: 'Modern e-commerce platform with Next.js and Stripe integration',
+      animation: animations.projects?.ecommerce
+    },
+    {
+      title: 'Social Media Dashboard',
+      desc: 'Real-time dashboard with analytics and user management',
+      animation: animations.projects?.dashboard
+    },
+    {
+      title: 'Mobile App',
+      desc: 'Cross-platform mobile application with React Native',
+      animation: animations.projects?.mobile
+    }
+  ];
+
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative">
+        <motion.div style={{ opacity, scale }} className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] to-transparent opacity-50"></div>
+        </motion.div>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={staggerContainer}
+              className="text-center md:text-left md:w-1/2"
+            >
+              <motion.h1
+                variants={fadeInUp}
+                className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
+              >
+                Welcome to My Portfolio
+              </motion.h1>
+              <motion.p
+                variants={fadeInUp}
+                className="text-xl text-gray-400 mb-8"
+              >
+                I create beautiful and functional web experiences
+              </motion.p>
+              <motion.div
+                variants={fadeInUp}
+                className="flex justify-center md:justify-start space-x-8"
+              >
+                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                  <FiGithub />
+                </a>
+                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                  <FiLinkedin />
+                </a>
+                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                  <FiMail />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="md:w-1/2 mb-8 md:mb-0"
+            >
+              <div className="relative w-full h-[400px] hover:scale-105 transition-transform duration-500">
+                {animations.hero && (
+                  <Lottie
+                    animationData={animations.hero}
+                    loop={true}
+                    className="w-full h-full drop-shadow-[0_0_15px_rgba(100,255,218,0.3)]"
+                  />
+                )}
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 bg-[#112240] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:w-1/2"
+            >
+              <div className="relative w-full h-[400px] group">
+                {animations.about && (
+                  <Lottie
+                    animationData={animations.about}
+                    loop={true}
+                    className="w-full h-full drop-shadow-[0_0_15px_rgba(100,255,218,0.3)] transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
+              </div>
+            </motion.div>
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="md:w-1/2"
+            >
+              <motion.h2 
+                variants={fadeInUp}
+                className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
+              >
+                About Me
+              </motion.h2>
+              <motion.p 
+                variants={fadeInUp}
+                className="text-gray-400 leading-relaxed mb-8 text-lg"
+              >
+                I am a passionate web developer with expertise in modern technologies.
+                I love creating responsive and user-friendly websites that provide
+                great user experiences.
+              </motion.p>
+              <motion.div
+                variants={staggerContainer}
+                className="grid grid-cols-2 gap-4"
+              >
+                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS'].map((skill) => (
+                  <motion.div
+                    key={skill}
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-4 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
+          >
+            My Projects
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="bg-[#112240] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="relative h-48 bg-gradient-to-br from-[#1a365d] to-[#0a192f] group">
+                  {project.animation && (
+                    <Lottie
+                      animationData={project.animation}
+                      loop={true}
+                      className="w-full h-full drop-shadow-[0_0_15px_rgba(100,255,218,0.3)] transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-teal-300">{project.title}</h3>
+                  <p className="text-gray-400 mb-4">{project.desc}</p>
+                  <div className="flex space-x-4">
+                    <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
+                      View Demo
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                    <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
+                      Source Code
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-[#112240] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:w-1/2"
+            >
+              <div className="relative w-full h-[400px] group">
+                {animations.contact && (
+                  <Lottie
+                    animationData={animations.contact}
+                    loop={true}
+                    className="w-full h-full drop-shadow-[0_0_15px_rgba(100,255,218,0.3)] transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
+              </div>
+            </motion.div>
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="md:w-1/2 text-center md:text-left"
+            >
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
+              >
+                Get In Touch
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="text-gray-400 mb-8 text-lg"
+              >
+                I&apos;m currently looking for new opportunities. Whether you have a
+                question or just want to say hi, I&apos;ll try my best to get back to you!
+              </motion.p>
+              <motion.a
+                variants={fadeInUp}
+                href="mailto:your.email@example.com"
+                className="inline-block bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                Say Hello
+              </motion.a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-gray-400">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <p>© 2024 Your Name. All rights reserved.</p>
+        </motion.div>
       </footer>
-    </div>
+    </main>
   );
 }
