@@ -325,16 +325,6 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-teal-300">{project.title}</h3>
                   <p className="text-gray-400 mb-4">{project.desc}</p>
-                  <div className="flex space-x-4">
-                    <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
-                      Demoyu Gör
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    </a>
-                    <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
-                      Kaynak Kodu
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    </a>
-                  </div>
                 </div>
               </motion.div>
             ))}
