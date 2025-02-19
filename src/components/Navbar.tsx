@@ -17,10 +17,10 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Ana Sayfa', href: '#home' },
+    { name: 'Hakkımda', href: '#about' },
+    { name: 'Projeler', href: '#projects' },
+    { name: 'İletişim', href: '#contact' },
   ];
 
   return (

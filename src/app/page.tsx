@@ -84,18 +84,18 @@ export default function Home() {
 
   const projects = [
     {
-      title: 'E-Commerce App',
-      desc: 'Modern e-commerce platform with Next.js and Stripe integration',
+      title: 'E-Ticaret Uygulaması',
+      desc: 'Next.js ve Stripe entegrasyonlu modern e-ticaret platformu',
       animation: animations.projects?.ecommerce
     },
     {
-      title: 'Social Media Dashboard',
-      desc: 'Real-time dashboard with analytics and user management',
+      title: 'Sosyal Medya Paneli',
+      desc: 'Analitik ve kullanıcı yönetimi içeren gerçek zamanlı panel',
       animation: animations.projects?.dashboard
     },
     {
-      title: 'Mobile App',
-      desc: 'Cross-platform mobile application with React Native',
+      title: 'Mobil Uygulama',
+      desc: 'React Native ile geliştirilmiş çoklu platform mobil uygulaması',
       animation: animations.projects?.mobile
     }
   ];
@@ -121,13 +121,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Welcome to My Portfolio
+                Portfolyoma Hoş Geldiniz
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
                 className="text-xl text-gray-400 mb-8"
               >
-                I create beautiful and functional web experiences
+                Güzel ve fonksiyonel web deneyimleri oluşturuyorum
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -197,15 +197,15 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                About Me
+                Hakkımda
               </motion.h2>
               <motion.p 
                 variants={fadeInUp}
                 className="text-gray-400 leading-relaxed mb-8 text-lg"
               >
-                I am a passionate web developer with expertise in modern technologies.
-                I love creating responsive and user-friendly websites that provide
-                great user experiences.
+                Modern teknolojilerde uzmanlığa sahip tutkulu bir web geliştiricisiyim.
+                Kullanıcı dostu ve duyarlı web siteleri oluşturmayı seviyorum ve
+                harika kullanıcı deneyimleri sunmayı hedefliyorum.
               </motion.p>
               <motion.div
                 variants={staggerContainer}
@@ -237,7 +237,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
           >
-            My Projects
+            Projelerim
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -264,11 +264,11 @@ export default function Home() {
                   <p className="text-gray-400 mb-4">{project.desc}</p>
                   <div className="flex space-x-4">
                     <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
-                      View Demo
+                      Demoyu Gör
                       <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </a>
                     <a href="#" className="text-teal-300 hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 group">
-                      Source Code
+                      Kaynak Kodu
                       <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </a>
                   </div>
@@ -312,21 +312,21 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Get In Touch
+                İletişime Geçin
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-400 mb-8 text-lg"
               >
-                I&apos;m currently looking for new opportunities. Whether you have a
-                question or just want to say hi, I&apos;ll try my best to get back to you!
+                Şu anda yeni fırsatlar arıyorum. Bir sorunuz varsa veya sadece
+                merhaba demek istiyorsanız, size en kısa sürede dönüş yapmaya çalışacağım!
               </motion.p>
               <motion.a
                 variants={fadeInUp}
                 href="mailto:your.email@example.com"
                 className="inline-block bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
-                Say Hello
+                Merhaba De
               </motion.a>
             </motion.div>
           </div>
@@ -342,7 +342,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="container mx-auto px-4"
         >
-          <p>© 2024 Your Name. All rights reserved.</p>
+          <p>© 2024 İsminiz. Tüm hakları saklıdır.</p>
         </motion.div>
       </footer>
     </main>
