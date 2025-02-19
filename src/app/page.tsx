@@ -84,18 +84,18 @@ export default function Home() {
 
   const projects = [
     {
-      title: 'E-Ticaret Uygulaması',
-      desc: 'Next.js ve Stripe entegrasyonlu modern e-ticaret platformu',
+      title: 'Modern Web Tasarımı',
+      desc: 'Next.js ve TailwindCSS ile geliştirilmiş, etkileyici animasyonlara sahip kurumsal web siteleri',
       animation: animations.projects?.ecommerce
     },
     {
-      title: 'Sosyal Medya Paneli',
-      desc: 'Analitik ve kullanıcı yönetimi içeren gerçek zamanlı panel',
+      title: 'SEO Optimizasyonu',
+      desc: 'Google sıralamasını iyileştiren, organik trafiği artıran ve dönüşüm oranını yükselten SEO çözümleri',
       animation: animations.projects?.dashboard
     },
     {
       title: 'Mobil Uygulama',
-      desc: 'React Native ile geliştirilmiş çoklu platform mobil uygulaması',
+      desc: 'iOS ve Android platformları için React Native ile geliştirilmiş, yüksek performanslı mobil uygulamalar',
       animation: animations.projects?.mobile
     }
   ];
@@ -121,13 +121,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Portfolyoma Hoş Geldiniz
+                Dijital Dünyada İz Bırakın
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-xl text-gray-400 mb-8"
+                className="text-xl text-gray-400 mb-8 max-w-2xl"
               >
-                Güzel ve fonksiyonel web deneyimleri oluşturuyorum
+                Modern teknolojiler ve yaratıcı çözümlerle markanızı dijital dünyada öne çıkarıyorum. Web siteniz, mobil uygulamanız ve SEO stratejiniz için profesyonel hizmet sunuyorum.
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -203,24 +203,87 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-gray-400 leading-relaxed mb-8 text-lg"
               >
-                Modern teknolojilerde uzmanlığa sahip tutkulu bir web geliştiricisiyim.
-                Kullanıcı dostu ve duyarlı web siteleri oluşturmayı seviyorum ve
-                harika kullanıcı deneyimleri sunmayı hedefliyorum.
+                5 yılı aşkın deneyimle web teknolojileri alanında uzmanlaşmış bir yazılım geliştiricisiyim.
+                Modern web teknolojilerini kullanarak, işletmelerin dijital varlıklarını güçlendiriyor ve
+                kullanıcı deneyimini ön planda tutarak yenilikçi çözümler sunuyorum. SEO odaklı geliştirmeler ve
+                mobil öncelikli tasarım yaklaşımıyla, projelerin hem kullanıcılar hem de arama motorları
+                tarafından sevilmesini sağlıyorum.
               </motion.p>
               <motion.div
                 variants={staggerContainer}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                {['React', 'Next.js', 'TypeScript', 'Tailwind CSS'].map((skill) => (
+                <div className="space-y-4">
+                  <h3 className="text-teal-300 font-semibold mb-2">Frontend Geliştirme</h3>
                   <motion.div
-                    key={skill}
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-4 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    {skill}
+                    React & Next.js
                   </motion.div>
-                ))}
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    TypeScript
+                  </motion.div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-teal-300 font-semibold mb-2">Tasarım & SEO</h3>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    UI/UX Tasarım
+                  </motion.div>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    SEO & Analytics
+                  </motion.div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-teal-300 font-semibold mb-2">Mobil Geliştirme</h3>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    React Native
+                  </motion.div>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    Cross-Platform
+                  </motion.div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-teal-300 font-semibold mb-2">Araçlar & Teknolojiler</h3>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    Tailwind CSS
+                  </motion.div>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    Git & GitHub
+                  </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -312,21 +375,44 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                İletişime Geçin
+                Profesyonel İş Birliği
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-400 mb-8 text-lg"
               >
-                Şu anda yeni fırsatlar arıyorum. Bir sorunuz varsa veya sadece
-                merhaba demek istiyorsanız, size en kısa sürede dönüş yapmaya çalışacağım!
+                Web geliştirme, SEO optimizasyonu veya mobil uygulama projeniz için profesyonel çözümler sunuyorum. 
+                Projenizi birlikte değerlendirelim ve dijital varlığınızı güçlendirelim.
               </motion.p>
+              <motion.div
+                variants={fadeInUp}
+                className="space-y-4"
+              >
+                <div className="flex items-center space-x-4">
+                  <FiMail className="text-teal-300 text-xl" />
+                  <a href="mailto:your.email@example.com" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    your.email@example.com
+                  </a>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <FiLinkedin className="text-teal-300 text-xl" />
+                  <a href="#" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    LinkedIn Profilim
+                  </a>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <FiGithub className="text-teal-300 text-xl" />
+                  <a href="#" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    GitHub Profilim
+                  </a>
+                </div>
+              </motion.div>
               <motion.a
                 variants={fadeInUp}
                 href="mailto:your.email@example.com"
-                className="inline-block bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="inline-block mt-8 bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
-                Merhaba De
+                Hemen İletişime Geç
               </motion.a>
             </motion.div>
           </div>
@@ -334,7 +420,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-gray-400">
+      <footer className="py-12 text-gray-400 bg-[#0a192f] border-t border-gray-800">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -342,7 +428,40 @@ export default function Home() {
           viewport={{ once: true }}
           className="container mx-auto px-4"
         >
-          <p>© 2024 İsminiz. Tüm hakları saklıdır.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold text-teal-300 mb-4">Mehmet Ali Taş</h3>
+              <p className="text-sm">Full Stack Developer & SEO Uzmanı</p>
+              <p className="text-sm mt-2">Trabzon, Türkiye</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-teal-300 mb-4">Hızlı Bağlantılar</h3>
+              <ul className="space-y-2">
+                <li><a href="#home" className="hover:text-teal-300 transition-colors duration-300">Ana Sayfa</a></li>
+                <li><a href="#about" className="hover:text-teal-300 transition-colors duration-300">Hakkımda</a></li>
+                <li><a href="#projects" className="hover:text-teal-300 transition-colors duration-300">Projeler</a></li>
+                <li><a href="#contact" className="hover:text-teal-300 transition-colors duration-300">İletişim</a></li>
+              </ul>
+            </div>
+            <div className="text-center md:text-right">
+              <h3 className="text-xl font-bold text-teal-300 mb-4">İletişim</h3>
+              <div className="flex justify-center md:justify-end space-x-4">
+                <a href="#" className="hover:text-teal-300 transition-colors duration-300">
+                  <FiGithub className="text-2xl" />
+                </a>
+                <a href="#" className="hover:text-teal-300 transition-colors duration-300">
+                  <FiLinkedin className="text-2xl" />
+                </a>
+                <a href="mailto:your.email@example.com" className="hover:text-teal-300 transition-colors duration-300">
+                  <FiMail className="text-2xl" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="text-center pt-8 border-t border-gray-800">
+            <p>© 2025 Mehmet Ali Taş. Tüm hakları saklıdır.</p>
+            <p className="text-sm mt-2">Modern Web Çözümleri & Dijital Dönüşüm</p>
+          </div>
         </motion.div>
       </footer>
     </main>
