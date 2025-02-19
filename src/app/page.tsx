@@ -2,8 +2,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const fadeInUp = {
   initial: { y: 60, opacity: 0 },
