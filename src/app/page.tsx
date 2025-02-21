@@ -214,74 +214,74 @@ export default function Home() {
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Frontend Geliştirme</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">Web Geliştirme</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    React & Next.js
+                    Full Stack Development
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    TypeScript
-                  </motion.div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Tasarım & SEO</h3>
-                  <motion.div
-                    variants={scaleIn}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    UI/UX Tasarım
-                  </motion.div>
-                  <motion.div
-                    variants={scaleIn}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    SEO & Analytics
+                    Modern Web Teknolojileri
                   </motion.div>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Mobil Geliştirme</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">Dijital Pazarlama</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    React Native
+                    SEO & SEM
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Cross-Platform
+                    Performans Analizi
                   </motion.div>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Araçlar & Teknolojiler</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">Mobil & Yazılım</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Tailwind CSS
+                    Mobil Uygulama Geliştirme
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Git & GitHub
+                    Özel Yazılım Çözümleri
+                  </motion.div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-teal-300 font-semibold mb-2">İş Çözümleri</h3>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    E-Ticaret Sistemleri
+                  </motion.div>
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    İş Süreç Otomasyonu
                   </motion.div>
                 </div>
               </motion.div>
