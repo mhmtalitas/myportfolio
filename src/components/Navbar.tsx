@@ -2,11 +2,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage, translations } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,15 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Ana Sayfa', href: '#home' },
-    { name: 'Hakkımda', href: '#about' },
-    { name: 'Projeler', href: '#projects' },
-    { name: 'İletişim', href: '#contact' },
+    { name: translations['nav.home'][language], href: '#home' },
+    { name: translations['nav.about'][language], href: '#about' },
+    { name: translations['nav.projects'][language], href: '#projects' },
+    { name: translations['nav.contact'][language], href: '#contact' },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'tr' ? 'en' : 'tr');
+  };
 
   return (
     <nav
@@ -36,7 +42,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -46,10 +52,24 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 hover:text-teal-300 transition-colors duration-300 group"
+            >
+              <FiGlobe className="text-xl group-hover:rotate-180 transition-transform duration-500" />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 hover:text-teal-300 transition-colors duration-300 group"
+            >
+              <FiGlobe className="text-xl group-hover:rotate-180 transition-transform duration-500" />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-2xl focus:outline-none hover:text-teal-300 transition-colors duration-300"

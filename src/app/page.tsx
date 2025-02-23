@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
@@ -27,6 +28,14 @@ const scaleIn = {
   transition: { duration: 0.6, ease: "easeOut" }
 };
 
+type AnimationType = 'ecommerce' | 'dashboard' | 'mobile';
+
+interface Project {
+  title: string;
+  description: string;
+  animationType: AnimationType;
+}
+
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -42,6 +51,8 @@ export default function Home() {
       mobile: null
     }
   });
+
+  const { language, translations } = useLanguage();
 
   useEffect(() => {
     // Modern developer animation
@@ -82,22 +93,22 @@ export default function Home() {
       })));
   }, []);
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Modern Web Tasarımı',
-      desc: 'Next.js ve TailwindCSS ile geliştirilmiş, etkileyici animasyonlara sahip kurumsal web siteleri',
-      animation: animations.projects?.ecommerce
+      description: 'Next.js ve TailwindCSS ile geliştirilmiş, etkileyici animasyonlara sahip kurumsal web siteleri.',
+      animationType: 'ecommerce'
     },
     {
       title: 'SEO Optimizasyonu',
-      desc: 'Google sıralamasını iyileştiren, organik trafiği artıran ve dönüşüm oranını yükselten SEO çözümleri',
-      animation: animations.projects?.dashboard
+      description: 'Google sıralamasını iyileştiren, organik trafiği artıran ve dönüşüm oranını yükselten SEO çözümleri.',
+      animationType: 'dashboard'
     },
     {
       title: 'Mobil Uygulama',
-      desc: 'iOS ve Android platformları için React Native ile geliştirilmiş, yüksek performanslı mobil uygulamalar',
-      animation: animations.projects?.mobile
-    }
+      description: 'iOS ve Android platformları için React Native ile geliştirilmiş, yüksek performanslı mobil uygulamalar.',
+      animationType: 'mobile'
+    },
   ];
 
   return (
@@ -121,13 +132,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Dijital Dünyada İz Bırakın
+                {translations['hero.welcome'][language]}
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
                 className="text-xl text-gray-400 mb-8 max-w-2xl"
               >
-                Modern teknolojiler ve yaratıcı çözümlerle markanızı dijital dünyada öne çıkarıyorum. Web siteniz, mobil uygulamanız ve SEO stratejiniz için profesyonel hizmet sunuyorum.
+                {translations['hero.description'][language]}
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -197,24 +208,20 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Hakkımda
+                {translations['about.title'][language]}
               </motion.h2>
               <motion.p 
                 variants={fadeInUp}
                 className="text-gray-400 leading-relaxed mb-8 text-lg"
               >
-                5 yılı aşkın deneyimle web teknolojileri alanında uzmanlaşmış bir yazılım geliştiricisiyim.
-                Modern web teknolojilerini kullanarak, işletmelerin dijital varlıklarını güçlendiriyor ve
-                kullanıcı deneyimini ön planda tutarak yenilikçi çözümler sunuyorum. SEO odaklı geliştirmeler ve
-                mobil öncelikli tasarım yaklaşımıyla, projelerin hem kullanıcılar hem de arama motorları
-                tarafından sevilmesini sağlıyorum.
+                {translations['about.description'][language]}
               </motion.p>
               <motion.div
                 variants={staggerContainer}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Web Geliştirme</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">{translations['skills.webDev'][language]}</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
@@ -232,7 +239,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Dijital Pazarlama</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">{translations['skills.digitalMarketing'][language]}</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
@@ -250,7 +257,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">Mobil & Yazılım</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">{translations['skills.mobileDev'][language]}</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
@@ -268,7 +275,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-teal-300 font-semibold mb-2">İş Çözümleri</h3>
+                  <h3 className="text-teal-300 font-semibold mb-2">{translations['skills.businessSolutions'][language]}</h3>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
@@ -300,7 +307,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
           >
-            Projelerim
+            {translations['projects.title'][language]}
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -314,9 +321,9 @@ export default function Home() {
                 className="bg-[#112240] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative h-48 bg-gradient-to-br from-[#1a365d] to-[#0a192f] group">
-                  {project.animation && (
+                  {animations.projects?.[project.animationType] && (
                     <Lottie
-                      animationData={project.animation}
+                      animationData={animations.projects[project.animationType]}
                       loop={true}
                       className="w-full h-full drop-shadow-[0_0_15px_rgba(100,255,218,0.3)] transition-transform duration-500 group-hover:scale-110"
                     />
@@ -324,7 +331,7 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-teal-300">{project.title}</h3>
-                  <p className="text-gray-400 mb-4">{project.desc}</p>
+                  <p className="text-gray-400 mb-4">{project.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -365,14 +372,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
               >
-                Profesyonel İş Birliği
+                {translations['contact.title'][language]}
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-400 mb-8 text-lg"
               >
-                Web geliştirme, SEO optimizasyonu veya mobil uygulama projeniz için profesyonel çözümler sunuyorum. 
-                Projenizi birlikte değerlendirelim ve dijital varlığınızı güçlendirelim.
+                {translations['contact.description'][language]}
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -380,8 +386,8 @@ export default function Home() {
               >
                 <div className="flex items-center space-x-4">
                   <FiMail className="text-teal-300 text-xl" />
-                  <a href="mailto:your.email@example.com" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
-                    your.email@example.com
+                  <a href="mailto:contact@example.com" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    contact@example.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -399,10 +405,10 @@ export default function Home() {
               </motion.div>
               <motion.a
                 variants={fadeInUp}
-                href="mailto:your.email@example.com"
+                href="mailto:contact@example.com"
                 className="inline-block mt-8 bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
-                Hemen İletişime Geç
+                {translations['contact.button'][language]}
               </motion.a>
             </motion.div>
           </div>
@@ -442,14 +448,14 @@ export default function Home() {
                 <a href="#" className="hover:text-teal-300 transition-colors duration-300">
                   <FiLinkedin className="text-2xl" />
                 </a>
-                <a href="mailto:your.email@example.com" className="hover:text-teal-300 transition-colors duration-300">
+                <a href="mailto:contact@example.com" className="hover:text-teal-300 transition-colors duration-300">
                   <FiMail className="text-2xl" />
                 </a>
               </div>
             </div>
           </div>
           <div className="text-center pt-8 border-t border-gray-800">
-            <p>© 2025 Mehmet Ali Taş. Tüm hakları saklıdır.</p>
+            <p>{translations['footer.copyright'][language]}</p>
             <p className="text-sm mt-2">Modern Web Çözümleri & Dijital Dönüşüm</p>
           </div>
         </motion.div>
