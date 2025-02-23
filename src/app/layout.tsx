@@ -6,8 +6,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Modern Web Solutions",
-  description: "Professional web development, SEO optimization, and mobile app solutions.",
+  title: "Modern Web Çözümleri",
+  description: "Profesyonel web geliştirme, SEO optimizasyonu ve mobil uygulama çözümleri.",
 };
 
 export default function RootLayout({

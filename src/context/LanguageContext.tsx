@@ -47,7 +47,7 @@ const translations = {
     en: 'Web Development'
   },
   'skills.webDev.fullstack': {
-    tr: 'Full Stack Development',
+    tr: 'Full Stack Geliştirme',
     en: 'Full Stack Development'
   },
   'skills.webDev.modern': {
