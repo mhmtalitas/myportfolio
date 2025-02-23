@@ -95,18 +95,18 @@ export default function Home() {
 
   const projects: Project[] = [
     {
-      title: 'Modern Web Tasarımı',
-      description: 'Next.js ve TailwindCSS ile geliştirilmiş, etkileyici animasyonlara sahip kurumsal web siteleri.',
+      title: translations['projects.web.title'][language],
+      description: translations['projects.web.description'][language],
       animationType: 'ecommerce'
     },
     {
-      title: 'SEO Optimizasyonu',
-      description: 'Google sıralamasını iyileştiren, organik trafiği artıran ve dönüşüm oranını yükselten SEO çözümleri.',
+      title: translations['projects.seo.title'][language],
+      description: translations['projects.seo.description'][language],
       animationType: 'dashboard'
     },
     {
-      title: 'Mobil Uygulama',
-      description: 'iOS ve Android platformları için React Native ile geliştirilmiş, yüksek performanslı mobil uygulamalar.',
+      title: translations['projects.mobile.title'][language],
+      description: translations['projects.mobile.description'][language],
       animationType: 'mobile'
     },
   ];
@@ -227,14 +227,14 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Full Stack Development
+                    {translations['skills.webDev.fullstack'][language]}
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Modern Web Teknolojileri
+                    {translations['skills.webDev.modern'][language]}
                   </motion.div>
                 </div>
 
@@ -245,14 +245,14 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    SEO & SEM
+                    {translations['skills.digitalMarketing.seo'][language]}
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Performans Analizi
+                    {translations['skills.digitalMarketing.performance'][language]}
                   </motion.div>
                 </div>
 
@@ -263,14 +263,14 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Mobil Uygulama Geliştirme
+                    {translations['skills.mobileDev.app'][language]}
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Özel Yazılım Çözümleri
+                    {translations['skills.mobileDev.custom'][language]}
                   </motion.div>
                 </div>
 
@@ -281,14 +281,14 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    E-Ticaret Sistemleri
+                    {translations['skills.businessSolutions.ecommerce'][language]}
                   </motion.div>
                   <motion.div
                     variants={scaleIn}
                     whileHover={{ scale: 1.05 }}
                     className="bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] p-3 rounded-lg text-center shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    İş Süreç Otomasyonu
+                    {translations['skills.businessSolutions.automation'][language]}
                   </motion.div>
                 </div>
               </motion.div>
@@ -427,25 +427,25 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold text-teal-300 mb-4">Mehmet Ali Taş</h3>
-              <p className="text-sm">Full Stack Developer & SEO Uzmanı</p>
-              <p className="text-sm mt-2">Trabzon, Türkiye</p>
+              <p className="text-sm">{translations['footer.role'][language]}</p>
+              <p className="text-sm mt-2">{translations['footer.location'][language]}</p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold text-teal-300 mb-4">Hızlı Bağlantılar</h3>
+              <h3 className="text-xl font-bold text-teal-300 mb-4">{translations['footer.quickLinks'][language]}</h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="hover:text-teal-300 transition-colors duration-300">Ana Sayfa</a></li>
-                <li><a href="#about" className="hover:text-teal-300 transition-colors duration-300">Hakkımda</a></li>
-                <li><a href="#projects" className="hover:text-teal-300 transition-colors duration-300">Projeler</a></li>
-                <li><a href="#contact" className="hover:text-teal-300 transition-colors duration-300">İletişim</a></li>
+                <li><a href="#home" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.home'][language]}</a></li>
+                <li><a href="#about" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.about'][language]}</a></li>
+                <li><a href="#projects" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.projects'][language]}</a></li>
+                <li><a href="#contact" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.contact'][language]}</a></li>
               </ul>
             </div>
             <div className="text-center md:text-right">
-              <h3 className="text-xl font-bold text-teal-300 mb-4">İletişim</h3>
+              <h3 className="text-xl font-bold text-teal-300 mb-4">{translations['footer.contact'][language]}</h3>
               <div className="flex justify-center md:justify-end space-x-4">
-                <a href="#" className="hover:text-teal-300 transition-colors duration-300">
+                <a href="#" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.github'][language]}>
                   <FiGithub className="text-2xl" />
                 </a>
-                <a href="#" className="hover:text-teal-300 transition-colors duration-300">
+                <a href="#" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.linkedin'][language]}>
                   <FiLinkedin className="text-2xl" />
                 </a>
                 <a href="mailto:contact@example.com" className="hover:text-teal-300 transition-colors duration-300">
@@ -456,7 +456,7 @@ export default function Home() {
           </div>
           <div className="text-center pt-8 border-t border-gray-800">
             <p>{translations['footer.copyright'][language]}</p>
-            <p className="text-sm mt-2">Modern Web Çözümleri & Dijital Dönüşüm</p>
+            <p className="text-sm mt-2">{translations['footer.slogan'][language]}</p>
           </div>
         </motion.div>
       </footer>
