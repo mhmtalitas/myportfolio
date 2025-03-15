@@ -161,6 +161,14 @@ const translations = {
   'footer.social.github': {
     tr: 'GitHub Profilim',
     en: 'My GitHub Profile'
+  },
+  'contact.linkedin': {
+    tr: 'LinkedIn Profilim',
+    en: 'My LinkedIn Profile'
+  },
+  'contact.github': {
+    tr: 'GitHub Profilim',
+    en: 'My GitHub Profile'
   }
 };
 

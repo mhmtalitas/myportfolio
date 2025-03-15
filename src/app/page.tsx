@@ -144,13 +144,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="flex justify-center md:justify-start space-x-8"
               >
-                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                <a href="https://github.com/mhmtalitas" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
                   <FiGithub />
                 </a>
-                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                <a href="https://www.linkedin.com/in/mehmet-ali-ta%C5%9F-1b647b279/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
                   <FiLinkedin />
                 </a>
-                <a href="#" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
+                <a href="mailto:mehmetalitascom@gmail.com" className="text-3xl hover:text-teal-300 transition-all duration-300 hover:scale-110">
                   <FiMail />
                 </a>
               </motion.div>
@@ -386,26 +386,26 @@ export default function Home() {
               >
                 <div className="flex items-center space-x-4">
                   <FiMail className="text-teal-300 text-xl" />
-                  <a href="mailto:contact@example.com" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
-                    contact@example.com
+                  <a href="mailto:mehmetalitascom@gmail.com" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    mehmetalitascom@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
                   <FiLinkedin className="text-teal-300 text-xl" />
-                  <a href="#" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
-                    LinkedIn Profilim
+                  <a href="https://www.linkedin.com/in/mehmet-ali-ta%C5%9F-1b647b279/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    {translations['contact.linkedin'][language]}
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
                   <FiGithub className="text-teal-300 text-xl" />
-                  <a href="#" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
-                    GitHub Profilim
+                  <a href="https://github.com/mhmtalitas" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-300 transition-colors duration-300">
+                    {translations['contact.github'][language]}
                   </a>
                 </div>
               </motion.div>
               <motion.a
                 variants={fadeInUp}
-                href="mailto:contact@example.com"
+                href="mailto:mehmetalitascom@gmail.com"
                 className="inline-block mt-8 bg-gradient-to-r from-teal-300 to-teal-400 text-gray-900 px-8 py-3 rounded-lg font-medium hover:from-teal-400 hover:to-teal-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 {translations['contact.button'][language]}
@@ -442,13 +442,13 @@ export default function Home() {
             <div className="text-center md:text-right">
               <h3 className="text-xl font-bold text-teal-300 mb-4">{translations['footer.contact'][language]}</h3>
               <div className="flex justify-center md:justify-end space-x-4">
-                <a href="#" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.github'][language]}>
+                <a href="https://github.com/mhmtalitas" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.github'][language]}>
                   <FiGithub className="text-2xl" />
                 </a>
-                <a href="#" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.linkedin'][language]}>
+                <a href="https://www.linkedin.com/in/mehmet-ali-ta%C5%9F-1b647b279/" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors duration-300" title={translations['footer.social.linkedin'][language]}>
                   <FiLinkedin className="text-2xl" />
                 </a>
-                <a href="mailto:contact@example.com" className="hover:text-teal-300 transition-colors duration-300">
+                <a href="mailto:mehmetalitascom@gmail.com" className="hover:text-teal-300 transition-colors duration-300">
                   <FiMail className="text-2xl" />
                 </a>
               </div>
