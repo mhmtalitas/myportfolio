@@ -22,6 +22,10 @@ const translations = {
     tr: 'Projeler',
     en: 'Projects'
   },
+  'nav.partners': {
+    tr: 'Referanslar',
+    en: 'References'
+  },
   'nav.contact': {
     tr: 'İletişim',
     en: 'Contact'
@@ -117,6 +121,34 @@ const translations = {
   'projects.mobile.description': {
     tr: 'iOS ve Android platformları için React Native ile geliştirilmiş, yüksek performanslı mobil uygulamalar.',
     en: 'High-performance mobile applications developed with React Native for iOS and Android platforms.'
+  },
+  'partners.title': {
+    tr: 'Referanslar',
+    en: 'References'
+  },
+  'partners.description': {
+    tr: 'Başarıyla tamamladığımız projeler ve memnun müşterilerimiz.',
+    en: 'Successfully completed projects and satisfied clients.'
+  },
+  'partners.webProject': {
+    tr: 'Web Sitesi',
+    en: 'Website'
+  },
+  'partners.desktopProject': {
+    tr: 'Masaüstü Uygulama',
+    en: 'Desktop Application'
+  },
+  'partners.mobileProject': {
+    tr: 'Mobil Uygulama',
+    en: 'Mobile Application'
+  },
+  'partners.seoProject': {
+    tr: 'SEO Çalışması',
+    en: 'SEO Work'
+  },
+  'partners.customSoftware': {
+    tr: 'Özel Müşteri ve Stok Takip Yazılımı',
+    en: 'Custom CRM & Inventory Software'
   },
   'contact.title': {
     tr: 'İletişime Geçin',

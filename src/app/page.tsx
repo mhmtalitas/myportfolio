@@ -1,7 +1,8 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiMonitor, FiSmartphone, FiSearch, FiLayout } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -34,6 +35,16 @@ interface Project {
   title: string;
   description: string;
   animationType: AnimationType;
+}
+
+type PartnerProjectType = 'web' | 'desktop' | 'mobile' | 'seo';
+
+interface Partner {
+  name: string;
+  logo?: string;
+  projectType: PartnerProjectType;
+  color: string;
+  website?: string;
 }
 
 export default function Home() {
@@ -111,9 +122,91 @@ export default function Home() {
     },
   ];
 
+  const partners: Partner[] = [
+    {
+      name: 'Özel Trabzon Kardelen Bakım Merkezi',
+      projectType: 'web',
+      color: 'border-teal-400',
+      website: 'www.ozeltrabzonkardelen.com'
+    },
+    {
+      name: 'Beşikdüzü Taksi',
+      projectType: 'web',
+      color: 'border-blue-400',
+      website: 'www.besikduzutaksi.com'
+    },
+    {
+      name: 'Taş Mobilya',
+      projectType: 'desktop',
+      color: 'border-indigo-400'
+    },
+    {
+      name: 'Eloz Nakliyat',
+      projectType: 'web',
+      color: 'border-green-400',
+      website: 'www.eloznakliyat.com'
+    }
+  ];
+  
+  const getProjectTypeIcon = (type: PartnerProjectType) => {
+    switch (type) {
+      case 'web':
+        return <FiLayout className="text-xl" />;
+      case 'desktop':
+        return <FiMonitor className="text-xl" />;
+      case 'mobile':
+        return <FiSmartphone className="text-xl" />;
+      case 'seo':
+        return <FiSearch className="text-xl" />;
+      default:
+        return <FiLayout className="text-xl" />;
+    }
+  };
+  
+  const getProjectTypeName = (type: PartnerProjectType) => {
+    switch (type) {
+      case 'web':
+        return translations['partners.webProject'][language];
+      case 'desktop':
+        return translations['partners.desktopProject'][language];
+      case 'mobile':
+        return translations['partners.mobileProject'][language];
+      case 'seo':
+        return translations['partners.seoProject'][language];
+      default:
+        return '';
+    }
+  };
+
+  const getProjectDetails = (type: PartnerProjectType) => {
+    let typeInfo = {
+      icon: getProjectTypeIcon(type),
+      name: getProjectTypeName(type),
+      description: undefined as string | undefined
+    };
+    
+    // Add custom description for desktop projects
+    if (type === 'desktop') {
+      typeInfo.description = translations['partners.customSoftware'][language];
+    }
+    
+    return typeInfo;
+  };
+
   return (
     <main className="min-h-screen">
       <Navbar />
+      
+      {/* WhatsApp Floating Button */}
+      <a 
+        href="https://wa.me/+905436977668" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50 animate-pulse-slow"
+        title={language === 'tr' ? 'WhatsApp ile İletişime Geçin' : 'Contact via WhatsApp'}
+      >
+        <FaWhatsapp className="text-2xl" />
+      </a>
       
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative">
@@ -339,6 +432,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partners Section - Now References Section */}
+      <section id="partners" className="py-20 relative">
+        <div className="container mx-auto px-4 relative">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-500"
+          >
+            {translations['partners.title'][language]}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-gray-400 text-lg text-center max-w-3xl mx-auto mb-16"
+          >
+            {translations['partners.description'][language]}
+          </motion.p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+                className={`bg-[#0a192f] rounded-md border-l-4 ${partner.color} p-6 shadow-sm hover:shadow-md transition-all duration-300`}
+              >
+                <h3 className="text-lg font-semibold text-gray-100 mb-2">{partner.name}</h3>
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center text-gray-400">
+                    <span className="text-teal-300 mr-2">
+                      {getProjectTypeIcon(partner.projectType)}
+                    </span>
+                    <span className="text-sm">
+                      {getProjectTypeName(partner.projectType)}
+                    </span>
+                  </div>
+                  {partner.projectType === 'desktop' && (
+                    <div className="text-sm text-gray-400 mt-1">
+                      {translations['partners.customSoftware'][language]}
+                    </div>
+                  )}
+                  {partner.website && (
+                    <a 
+                      href={`https://${partner.website}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-sm text-teal-300 hover:text-teal-400 transition-colors duration-300 truncate"
+                    >
+                      {partner.website}
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#112240] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
@@ -436,6 +593,7 @@ export default function Home() {
                 <li><a href="#home" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.home'][language]}</a></li>
                 <li><a href="#about" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.about'][language]}</a></li>
                 <li><a href="#projects" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.projects'][language]}</a></li>
+                <li><a href="#partners" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.partners'][language]}</a></li>
                 <li><a href="#contact" className="hover:text-teal-300 transition-colors duration-300">{translations['nav.contact'][language]}</a></li>
               </ul>
             </div>

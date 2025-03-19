@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: translations['nav.home'][language], href: '#home' },
     { name: translations['nav.about'][language], href: '#about' },
     { name: translations['nav.projects'][language], href: '#projects' },
+    { name: translations['nav.partners'][language], href: '#partners' },
     { name: translations['nav.contact'][language], href: '#contact' },
   ];
 
