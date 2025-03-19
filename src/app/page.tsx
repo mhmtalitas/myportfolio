@@ -179,7 +179,7 @@ export default function Home() {
   };
 
   const getProjectDetails = (type: PartnerProjectType) => {
-    let typeInfo = {
+    const typeInfo = {
       icon: getProjectTypeIcon(type),
       name: getProjectTypeName(type),
       description: undefined as string | undefined
@@ -476,7 +476,7 @@ export default function Home() {
                   </div>
                   {partner.projectType === 'desktop' && (
                     <div className="text-sm text-gray-400 mt-1">
-                      {translations['partners.customSoftware'][language]}
+                      {getProjectDetails(partner.projectType).description}
                     </div>
                   )}
                   {partner.website && (
