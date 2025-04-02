@@ -200,8 +200,8 @@ export default function Home() {
       {/* WhatsApp Floating Button */}
       <a 
         href="https://wa.me/+905436977668" 
-        target="_blank"
-        rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
         className="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50 animate-pulse-slow"
         title={language === 'tr' ? 'WhatsApp ile İletişime Geçin' : 'Contact via WhatsApp'}
       >
@@ -482,12 +482,12 @@ export default function Home() {
                   {partner.website && (
                     <a 
                       href={`https://${partner.website}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+            target="_blank"
+            rel="noopener noreferrer"
                       className="text-sm text-teal-300 hover:text-teal-400 transition-colors duration-300 truncate"
-                    >
+          >
                       {partner.website}
-                    </a>
+          </a>
                   )}
                 </div>
               </motion.div>
