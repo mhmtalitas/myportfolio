@@ -1,42 +1,31 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { language, setLanguage, translations } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navItems = [
-    { name: translations['nav.home'][language], href: '#home' },
-    { name: translations['nav.about'][language], href: '#about' },
-    { name: translations['nav.projects'][language], href: '#projects' },
-    { name: translations['nav.partners'][language], href: '#partners' },
-    { name: translations['nav.contact'][language], href: '#contact' },
-  ];
 
   const toggleLanguage = () => {
     setLanguage(language === 'tr' ? 'en' : 'tr');
   };
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a192f]/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-      }`}
-    >
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      scrolled ? 'bg-[#0a192f]/90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -117,6 +106,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar; 
+} 
