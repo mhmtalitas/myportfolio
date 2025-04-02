@@ -6,8 +6,13 @@ import { LanguageProvider } from "@/context/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Modern Web Çözümleri",
-  description: "Profesyonel web geliştirme, SEO optimizasyonu ve mobil uygulama çözümleri.",
+  title: "Web & Mobil Yazılım Çözümleri | Profesyonel Geliştirme Hizmetleri",
+  description: "Profesyonel Web ve Yazılım Çözümleri",
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
