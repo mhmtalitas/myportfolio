@@ -65,41 +65,46 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-300 hover:text-teal-300 transition-colors duration-300"
-          >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center space-x-4">
+            {/* Language Switcher for Mobile */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-gray-300 hover:text-teal-300 transition-colors duration-300"
+            >
+              <FiGlobe className="text-xl" />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-teal-300 transition-colors duration-300"
+            >
+              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4">
-            <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-gray-300 hover:text-teal-300 transition-colors duration-300">
+          <div className="md:hidden fixed top-20 right-0 h-auto w-64 bg-[#0a192f]/95 backdrop-blur-sm shadow-xl z-50 transition-all duration-300 border-l border-teal-800/30 rounded-bl-lg">
+            <div className="flex flex-col space-y-4 p-6 pb-8">
+              <a href="#home" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-teal-300 transition-colors duration-300 py-2 border-b border-gray-800/50">
                 {language === 'tr' ? 'Ana Sayfa' : 'Home'}
               </a>
-              <a href="#about" className="text-gray-300 hover:text-teal-300 transition-colors duration-300">
+              <a href="#about" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-teal-300 transition-colors duration-300 py-2 border-b border-gray-800/50">
                 {language === 'tr' ? 'Hakkımda' : 'About'}
               </a>
-              <a href="#projects" className="text-gray-300 hover:text-teal-300 transition-colors duration-300">
+              <a href="#projects" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-teal-300 transition-colors duration-300 py-2 border-b border-gray-800/50">
                 {language === 'tr' ? 'Projeler' : 'Projects'}
               </a>
-              <a href="#partners" className="text-gray-300 hover:text-teal-300 transition-colors duration-300">
+              <a href="#partners" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-teal-300 transition-colors duration-300 py-2 border-b border-gray-800/50">
                 {language === 'tr' ? 'Referanslar' : 'References'}
               </a>
-              <a href="#contact" className="text-gray-300 hover:text-teal-300 transition-colors duration-300">
+              <a href="#contact" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-teal-300 transition-colors duration-300 py-2 border-b border-gray-800/50">
                 {language === 'tr' ? 'İletişim' : 'Contact'}
               </a>
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center space-x-2 text-gray-300 hover:text-teal-300 transition-colors duration-300"
-              >
-                <FiGlobe className="text-xl" />
-                <span className="text-sm font-medium">{language.toUpperCase()}</span>
-              </button>
             </div>
           </div>
         )}
