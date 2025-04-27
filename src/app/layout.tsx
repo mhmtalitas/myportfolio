@@ -8,14 +8,14 @@ const SEO = dynamic(() => import('@/components/SEO'), { ssr: true });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Web & Mobil Yazılım Çözümleri | Profesyonel Geliştirme Hizmetleri",
-  description: "Profesyonel web geliştirme, özel yazılım çözümleri ve mobil uygulama hizmetleri. SEO odaklı ve kullanıcı dostu web siteleri ile dijital varlığınızı güçlendirin.",
-  keywords: "web tasarım, yazılım geliştirme, mobil uygulama, SEO, özel yazılım, e-ticaret, web sitesi, dijital çözümler",
+  title: "Mehmet Alitaş | Trabzon Web & Mobil Yazılım Geliştirme ve SEO Hizmetleri",
+  description: "Trabzon'da profesyonel web tasarım, mobil uygulama geliştirme ve SEO hizmetleri. Tüm Türkiye'ye hizmet veren yazılım uzmanı.",
+  keywords: "web tasarım Trabzon, mobil uygulama geliştirme, SEO, web sitesi, yazılım, Trabzon yazılım, e-ticaret, dijital pazarlama, Karadeniz bölgesi, Türkiye geneli, özel yazılım çözümleri",
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1",
-  authors: [{ name: "MAT Yazılım" }],
-  creator: "MAT Yazılım",
-  publisher: "MAT Yazılım",
+  authors: [{ name: "Mehmet Alitaş" }],
+  creator: "Mehmet Alitaş",
+  publisher: "Mehmet Alitaş",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -26,29 +26,29 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "MAT Yazılım",
+    title: "Mehmet Alitaş",
     statusBarStyle: "black-translucent",
   },
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://www.matyazilim.com",
-    title: "Web & Mobil Yazılım Çözümleri | MAT Yazılım",
-    description: "Profesyonel web geliştirme, özel yazılım çözümleri ve mobil uygulama hizmetleri.",
-    siteName: "MAT Yazılım",
+    url: "https://www.mehmetalitas.com",
+    title: "Mehmet Alitaş | Trabzon Web & Mobil Yazılım Geliştirme ve SEO Hizmetleri",
+    description: "Trabzon'da profesyonel web tasarım, mobil uygulama geliştirme ve SEO hizmetleri. Tüm Türkiye'ye hizmet veren yazılım uzmanı.",
+    siteName: "Mehmet Alitaş",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MAT Yazılım",
+        alt: "Mehmet Alitaş - Web & Yazılım Hizmetleri",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web & Mobil Yazılım Çözümleri | MAT Yazılım",
-    description: "Profesyonel web geliştirme, özel yazılım çözümleri ve mobil uygulama hizmetleri.",
+    title: "Mehmet Alitaş | Trabzon Web & Mobil Yazılım Geliştirme",
+    description: "Trabzon'da profesyonel web tasarım, mobil uygulama geliştirme ve SEO hizmetleri.",
     images: ["/og-image.png"],
   },
 };

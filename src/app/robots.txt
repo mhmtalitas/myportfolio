@@ -5,4 +5,4 @@ Allow: /
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://www.matyazilim.com/sitemap.xml 
+Sitemap: https://www.mehmetalitas.com/sitemap.xml 

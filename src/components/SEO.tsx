@@ -12,27 +12,28 @@ const SEO = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "MAT Yazılım",
-    "url": "https://www.matyazilim.com",
-    "logo": "https://www.matyazilim.com/favicon.png",
+    "name": "Mehmet Alitaş",
+    "url": "https://www.mehmetalitas.com",
+    "logo": "https://www.mehmetalitas.com/favicon.png",
     "description": language === 'tr' 
-      ? "Profesyonel web geliştirme, özel yazılım çözümleri ve mobil uygulama hizmetleri." 
-      : "Professional web development, custom software solutions and mobile application services.",
+      ? "Trabzon merkezli, tüm Türkiye'ye hizmet veren profesyonel web geliştirme, mobil uygulama ve SEO hizmetleri." 
+      : "Trabzon-based professional web development, mobile application and SEO services serving all of Turkey.",
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Trabzon",
+      "addressRegion": "Trabzon",
       "addressCountry": "TR"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "41.0082",
-      "longitude": "28.9784"
+      "latitude": "41.0015",
+      "longitude": "39.7178"
     },
     "telephone": "+905436977668",
-    "email": "info@matyazilim.com",
+    "email": "info@mehmetalitas.com",
     "sameAs": [
-      "https://twitter.com/matyazilim",
-      "https://www.facebook.com/matyazilim",
-      "https://www.instagram.com/matyazilim"
+      "https://twitter.com/mehmetalitas",
+      "https://www.instagram.com/mehmetalitas"
     ],
     "priceRange": "₺₺",
     "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
@@ -40,10 +41,10 @@ const SEO = () => {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": "41.0082",
-        "longitude": "28.9784"
+        "latitude": "41.0015",
+        "longitude": "39.7178"
       },
-      "geoRadius": "50000"
+      "geoRadius": "500000"
     },
     "makesOffer": [
       {
@@ -64,6 +65,13 @@ const SEO = () => {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
+          "name": language === 'tr' ? "SEO Hizmetleri" : "SEO Services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
           "name": language === 'tr' ? "Özel Yazılım Çözümleri" : "Custom Software Solutions"
         }
       }
@@ -78,10 +86,10 @@ const SEO = () => {
           content="YOUR_VERIFICATION_CODE" 
           // Google Search Console'dan alacağınız doğrulama kodunu buraya ekleyin
         />
-        <link rel="canonical" href="https://www.matyazilim.com" />
+        <link rel="canonical" href="https://www.mehmetalitas.com" />
         {/* Hreflang Etiketleri */}
-        <link rel="alternate" href="https://www.matyazilim.com" hrefLang="tr" />
-        <link rel="alternate" href="https://www.matyazilim.com/en" hrefLang="en" />
+        <link rel="alternate" href="https://www.mehmetalitas.com" hrefLang="tr" />
+        <link rel="alternate" href="https://www.mehmetalitas.com/en" hrefLang="en" />
       </Head>
       
       {/* JSON-LD Structured Data */}
